@@ -7,6 +7,7 @@
 stages:
   - pre-build
   - build
+  - translation
 
 lintDebug:
   image: node:lts
@@ -27,6 +28,41 @@ jest:
     - npx yarn
   script:
     - npx yarn jest
+
+Fetch Translation:
+  stage: translation
+  when: manual
+  only:
+    - pdis.rocket.chat
+  image: debian:stable-slim
+  variables:
+    GIT_STRATEGY: clone
+  before_script:
+    - apt update -qy
+    - apt install -y curl jq git
+    - git config --global user.email 'automator@gitlab.pdis.dev'
+    - git config --global user.name 'CrowdinTranslation'
+    - git checkout "${CI_COMMIT_REF_NAME}"
+    - git remote set-url origin $( echo ${CI_REPOSITORY_URL} | sed -E "s/gitlab-ci-token:[^@]+/gitlab-ci-token:${GITLAB_TOKEN}/" )
+  script:
+    - |
+      ZH_TW_FILE=$(curl https://crowdin.com/api/v2/projects/${projectId}/translations/builds/files/${fileId}\
+                  -X POST \
+                  -H 'Content-Type: application/json' \
+                  -H "Authorization: Bearer ${PersonalToken}" \
+                  --data '{"targetLanguageId": "zh-TW"}'\
+          | jq -r '.data.url')
+      curl $ZH_TW_FILE -o app/i18n/locales/zh-TW.json
+      cp app/i18n/locales/zh-TW.json app/i18n/locales/zh-Hant-TW.json
+      if [ "$(git diff --exit-code)" ]; then
+        git add app/i18n/locales/zh-TW.json
+        git add app/i18n/locales/zh-Hant-TW.json
+        echo '[Auto] Fetch translation string from Crowdin' | git commit -F -
+        git push origin "${CI_COMMIT_REF_NAME}" -o ci.skip
+      else
+        echo 'there is no changes'
+      fi
+
 
 androidReleaseBuild:
   only:
