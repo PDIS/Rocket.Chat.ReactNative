@@ -19,16 +19,6 @@ lintDebug:
   script:
     - npm run lint
 
-jest:
-  image: node:lts
-  interruptible: true
-  stage: pre-build
-  before_script:
-    # Install package
-    - npx yarn
-  script:
-    - npx yarn jest
-
 Fetch Translation:
   stage: translation
   when: manual
