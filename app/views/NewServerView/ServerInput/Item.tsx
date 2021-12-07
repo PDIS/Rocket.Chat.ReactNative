@@ -1,12 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import { themes } from '../../../constants/colors';
-import { CustomIcon } from '../../../lib/Icons';
 import sharedStyles from '../../Styles';
 import Touch from '../../../utils/touch';
-import { IServer } from '../index';
 
 const styles = StyleSheet.create({
 	container: {
@@ -23,30 +20,29 @@ const styles = StyleSheet.create({
 	},
 	server: {
 		...sharedStyles.textMedium,
-		fontSize: 16
+		fontSize: 16,
+		paddingLeft: 8
+	},
+	serverAvatar: {
+		width: 32,
+		height: 32
 	}
 });
 
 interface IItem {
-	item: IServer;
+	item: any;
 	theme: string;
 	onPress(url: string): void;
-	onDelete(item: IServer): void;
 }
 
-const Item = ({ item, theme, onPress, onDelete }: IItem): JSX.Element => (
+const Item = ({ item, theme, onPress }: IItem): JSX.Element => (
 	<Touch style={styles.container} onPress={() => onPress(item.url)} theme={theme} testID={`server-history-${item.url}`}>
+		<Image style={styles.serverAvatar} source={{ uri: `https://${item.url}/assets/logo.png` }} />
 		<View style={styles.content}>
 			<Text numberOfLines={1} style={[styles.server, { color: themes[theme].bodyText }]}>
-				{item.url}
-			</Text>
-			<Text numberOfLines={1} style={{ color: themes[theme].auxiliaryText }}>
-				{item.username}
+				{item.name}
 			</Text>
 		</View>
-		<BorderlessButton onPress={() => onDelete(item)} testID={`server-history-delete-${item.url}`}>
-			<CustomIcon name='delete' size={24} color={themes[theme].auxiliaryText} />
-		</BorderlessButton>
 	</Touch>
 );
 

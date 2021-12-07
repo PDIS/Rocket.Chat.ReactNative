@@ -6,7 +6,7 @@ import * as List from '../../../containers/List';
 import { themes } from '../../../constants/colors';
 import I18n from '../../../i18n';
 import Item from './Item';
-import { IServer } from '../index';
+import { IWorkspace } from '../index';
 
 const styles = StyleSheet.create({
 	container: {
@@ -16,12 +16,9 @@ const styles = StyleSheet.create({
 		marginTop: 0,
 		marginBottom: 0
 	},
-	serverHistory: {
+	serverList: {
 		maxHeight: 180,
 		width: '100%',
-		top: '100%',
-		zIndex: 1,
-		position: 'absolute',
 		borderWidth: StyleSheet.hairlineWidth,
 		borderRadius: 2,
 		borderTopWidth: 0
@@ -33,25 +30,22 @@ interface IServerInput extends TextInputProps {
 	theme: string;
 	serversHistory: any[];
 	onSubmit(): void;
-	onDelete(item: IServer): void;
-	onPressServerHistory(serverHistory: IServer): void;
+	onPressServerList(workspace: IWorkspace): void;
 }
 
-const ServerInput = ({
-	text,
-	theme,
-	serversHistory,
-	onChangeText,
-	onSubmit,
-	onDelete,
-	onPressServerHistory
-}: IServerInput): JSX.Element => {
-	const [focused, setFocused] = useState(false);
+const ServerInput = ({ text, theme, onChangeText, onSubmit, onPressServerList }: IServerInput): JSX.Element => {
+	const [, setFocused] = useState(false);
+
+	const serverList = [
+		{ name: 'PDIS Chat', url: 'rc.pdis.nat.gov.tw' },
+		{ name: 'RAY Chat', url: 'raychat.pdis.nat.gov.tw' }
+	];
+
 	return (
 		<View style={styles.container}>
 			<TextInput
-				label={I18n.t('Enter_workspace_URL')}
-				placeholder={I18n.t('Workspace_URL_Example')}
+				label={I18n.t('PDIS_CUSTOM.Select_workspace')}
+				placeholder={I18n.t('PDIS_CUSTOM.Workspace_URL_placeholder')}
 				containerStyle={styles.inputContainer}
 				value={text}
 				returnKeyType='send'
@@ -65,19 +59,16 @@ const ServerInput = ({
 				onFocus={() => setFocused(true)}
 				onBlur={() => setFocused(false)}
 			/>
-			{focused && serversHistory?.length ? (
+			{serverList?.length ? (
 				<View
 					style={[
-						styles.serverHistory,
+						styles.serverList,
 						{ backgroundColor: themes[theme].backgroundColor, borderColor: themes[theme].separatorColor }
 					]}>
 					<FlatList
-						data={serversHistory}
-						renderItem={({ item }) => (
-							<Item item={item} theme={theme} onPress={() => onPressServerHistory(item)} onDelete={onDelete} />
-						)}
+						data={serverList}
+						renderItem={({ item }) => <Item item={item} theme={theme} onPress={() => onPressServerList(item)} />}
 						ItemSeparatorComponent={List.Separator}
-						keyExtractor={item => item.id}
 					/>
 				</View>
 			) : null}
