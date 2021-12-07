@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "294293674906",
+    "firebase_url": "https://pdis-rocketchat.firebaseio.com",
+    "project_id": "pdis-rocketchat",
+    "storage_bucket": "pdis-rocketchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294293674906:android:b6c0e1b2bd1be84e46b823",
+        "android_client_info": {
+          "package_name": "chat.rocket.reactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294293674906-eppn2joh9p5brmt97ciaputfq2rc2ceu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "chat.rocket.reactnative",
+            "certificate_hash": "5146b2c7fd6822f7d0aed592e7679df8585e2e99"
+          }
+        },
+        {
+          "client_id": "294293674906-4vjppcoo725hi4hb4pdoshsatirn37eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAinx59ElFaqz3bXBAvxZbGF1hX7WkvRSo"
+        },
+        {
+          "current_key": "AIzaSyBG5EJgaxTW40aIqM18DwZeLV7_vwb4MDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294293674906-4vjppcoo725hi4hb4pdoshsatirn37eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294293674906:android:025eb8e493744b8646b823",
+        "android_client_info": {
+          "package_name": "dev.pdis.rocketchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294293674906-ooqqfcmtduj3d8h1rp643njh442kkg81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.pdis.rocketchat",
+            "certificate_hash": "5146b2c7fd6822f7d0aed592e7679df8585e2e99"
+          }
+        },
+        {
+          "client_id": "294293674906-4vjppcoo725hi4hb4pdoshsatirn37eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAinx59ElFaqz3bXBAvxZbGF1hX7WkvRSo"
+        },
+        {
+          "current_key": "AIzaSyBG5EJgaxTW40aIqM18DwZeLV7_vwb4MDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294293674906-4vjppcoo725hi4hb4pdoshsatirn37eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

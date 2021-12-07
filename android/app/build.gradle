@@ -150,6 +150,7 @@ android {
             manifestPlaceholders = [BugsnagAPIKey: BugsnagAPIKey as String]
             missingDimensionStrategy "RNNotifications.reactNativeVersion", "reactNative60" // See note below!
         }
+
         resValue "string", "rn_config_reader_custom_package", "chat.rocket.reactnative"
     }
 
@@ -195,6 +196,10 @@ android {
 
     flavorDimensions "app", "type"
     productFlavors {
+        pdis {
+            dimension = "app"
+            buildConfigField "boolean", "IS_OFFICIAL", "false"
+        }
         official {
             dimension = "app"
             buildConfigField "boolean", "IS_OFFICIAL", "true"
@@ -229,6 +234,14 @@ android {
         officialPlayRelease {
             java.srcDirs = ['src/main/java', 'src/play/java']
             manifest.srcFile 'src/play/AndroidManifest.xml'
+        }
+        pdisPlayDebug {
+            java.srcDirs = ['src/main/java', 'src/play/java']
+            manifest.srcFile 'src/pdis/AndroidManifest.xml'
+        }
+        pdisPlayRelease {
+            java.srcDirs = ['src/main/java', 'src/play/java']
+            manifest.srcFile 'src/pdis/AndroidManifest.xml'
         }
     }
 
