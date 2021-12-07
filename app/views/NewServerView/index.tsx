@@ -16,7 +16,6 @@ import { selectServerRequest, serverRequest, serverFinishAdd as serverFinishAddA
 import { inviteLinksClear as inviteLinksClearAction } from '../../actions/inviteLinks';
 import sharedStyles from '../Styles';
 import Button from '../../containers/Button';
-import OrSeparator from '../../containers/OrSeparator';
 import FormContainer, { FormContainerInner } from '../../containers/FormContainer';
 import I18n from '../../i18n';
 import { themes } from '../../constants/colors';
@@ -58,10 +57,6 @@ const styles = StyleSheet.create({
 	chooseCertificate: {
 		...sharedStyles.textSemibold
 	},
-	description: {
-		...sharedStyles.textRegular,
-		textAlign: 'center'
-	},
 	connectButton: {
 		marginBottom: 0
 	}
@@ -70,6 +65,11 @@ const styles = StyleSheet.create({
 export interface IServer extends Model {
 	url: string;
 	username: string;
+}
+
+export interface IWorkspace {
+	url: string;
+	name: string;
 }
 
 interface INewServerView {
@@ -191,6 +191,10 @@ class NewServerView extends React.Component<INewServerView, IState> {
 
 	onPressServerHistory = (serverHistory: IServer) => {
 		this.setState({ text: serverHistory.url }, () => this.submit({ fromServerHistory: true, username: serverHistory?.username }));
+	};
+
+	onPressServerList = (workspace: IWorkspace) => {
+		this.setState({ text: workspace.url });
 	};
 
 	submit = async ({ fromServerHistory = false, username }: ISubmitParams = {}) => {
@@ -356,7 +360,7 @@ class NewServerView extends React.Component<INewServerView, IState> {
 								marginBottom: verticalScale({ size: 8, height })
 							}
 						]}>
-						Rocket.Chat
+						{I18n.t('PDIS_CUSTOM.Title')}
 					</Text>
 					<Text
 						style={[
@@ -364,10 +368,21 @@ class NewServerView extends React.Component<INewServerView, IState> {
 							{
 								color: themes[theme].controlText,
 								fontSize: moderateScale({ size: 16, width }),
+								marginBottom: verticalScale({ size: 8, height })
+							}
+						]}>
+						{I18n.t('PDIS_CUSTOM.Subtitle')}
+					</Text>
+					<Text
+						style={[
+							styles.subtitle,
+							{
+								color: themes[theme].controlText,
+								fontSize: moderateScale({ size: 12, width }),
 								marginBottom: verticalScale({ size: 30, height })
 							}
 						]}>
-						{I18n.t('Onboarding_subtitle')}
+						{I18n.t('PDIS_CUSTOM.Icon_credit')}
 					</Text>
 					<ServerInput
 						text={text}
@@ -375,8 +390,7 @@ class NewServerView extends React.Component<INewServerView, IState> {
 						serversHistory={serversHistory}
 						onChangeText={this.onChangeText}
 						onSubmit={this.submit}
-						onDelete={this.deleteServerHistory}
-						onPressServerHistory={this.onPressServerHistory}
+						onPressServerList={this.onPressServerList}
 					/>
 					<Button
 						title={I18n.t('Connect')}
@@ -387,28 +401,6 @@ class NewServerView extends React.Component<INewServerView, IState> {
 						style={[styles.connectButton, { marginTop: verticalScale({ size: 16, height }) }]}
 						theme={theme}
 						testID='new-server-view-button'
-					/>
-					<OrSeparator theme={theme} />
-					<Text
-						style={[
-							styles.description,
-							{
-								color: themes[theme].auxiliaryText,
-								fontSize: moderateScale({ size: 14, width }),
-								marginBottom: verticalScale({ size: 16, height })
-							}
-						]}>
-						{I18n.t('Onboarding_join_open_description')}
-					</Text>
-					<Button
-						title={I18n.t('Join_our_open_workspace')}
-						type='secondary'
-						backgroundColor={themes[theme].chatComponentBackground}
-						onPress={this.connectOpen}
-						disabled={connecting}
-						loading={connectingOpen && connecting}
-						theme={theme}
-						testID='new-server-view-open'
 					/>
 				</FormContainerInner>
 				{this.renderCertificatePicker()}
