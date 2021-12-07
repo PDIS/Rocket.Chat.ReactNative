@@ -36,10 +36,10 @@ Fetch Translation:
     - git remote set-url origin $( echo ${CI_REPOSITORY_URL} | sed -E "s/gitlab-ci-token:[^@]+/gitlab-ci-token:${GITLAB_TOKEN}/" )
   script:
     - |
-      ZH_TW_FILE=$(curl https://crowdin.com/api/v2/projects/${projectId}/translations/builds/files/${fileId}\
+      ZH_TW_FILE=$(curl https://crowdin.com/api/v2/projects/${CROWDIN_PROJECT_ID}/translations/builds/files/${CROWDIN_FILE_ID}\
                   -X POST \
                   -H 'Content-Type: application/json' \
-                  -H "Authorization: Bearer ${PersonalToken}" \
+                  -H "Authorization: Bearer ${CROWDIN_PERSONAL_TOKEN}" \
                   --data '{"targetLanguageId": "zh-TW"}'\
           | jq -r '.data.url')
       curl $ZH_TW_FILE -o app/i18n/locales/zh-TW.json
