@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>115198584049-0efgfvm0oh9ap55g7epmqnjm27mq3j4e.apps.googleusercontent.com</string>
+	<string>294293674906-ui4g08mbtj0l5fuu6pk7kt38kc2bdh81.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.115198584049-0efgfvm0oh9ap55g7epmqnjm27mq3j4e</string>
+	<string>com.googleusercontent.apps.294293674906-ui4g08mbtj0l5fuu6pk7kt38kc2bdh81</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>294293674906-eppn2joh9p5brmt97ciaputfq2rc2ceu.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDEMLMz0En0vwFBlLSQkQ9oyhmCMPcpZxc</string>
+	<string>AIzaSyDKszrUGpTZKJY00Y04-qk4KQ8wGco41HI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>115198584049</string>
+	<string>294293674906</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>chat.rocket.reactnative</string>
+	<string>dev.pdis.rocketchat</string>
 	<key>PROJECT_ID</key>
-	<string>rocketchat-reactnative-test</string>
+	<string>pdis-rocketchat</string>
 	<key>STORAGE_BUCKET</key>
-	<string>rocketchat-reactnative-test.appspot.com</string>
+	<string>pdis-rocketchat.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:115198584049:ios:8be27b1f7c42a2ed</string>
+	<string>1:294293674906:ios:0828a5aa215740b746b823</string>
 	<key>DATABASE_URL</key>
-	<string>https://rocketchat-reactnative-test.firebaseio.com</string>
+	<string>https://pdis-rocketchat.firebaseio.com</string>
 </dict>
 </plist>
