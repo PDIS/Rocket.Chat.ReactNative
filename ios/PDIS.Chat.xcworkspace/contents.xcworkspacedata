@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ericksonzhuang/pdis/pdis-rocket-chat-reactnative/ios/PDIS.Chat.xcodeproj">
+      location = "group:PDIS.Chat.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -18,7 +18,7 @@
                BlueprintIdentifier = "1EC6ACAF22CB9FC300A41C61"
                BuildableName = "ShareRocketChatRN.appex"
                BlueprintName = "ShareRocketChatRN"
-               ReferencedContainer = "container:RocketChatRN.xcodeproj">
+               ReferencedContainer = "container:PDIS.Chat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -32,7 +32,7 @@
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "Rocket.Chat Experimental.app"
                BlueprintName = "RocketChatRN"
-               ReferencedContainer = "container:RocketChatRN.xcodeproj">
+               ReferencedContainer = "container:PDIS.Chat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,7 +48,7 @@
             BlueprintIdentifier = "1EC6ACAF22CB9FC300A41C61"
             BuildableName = "ShareRocketChatRN.appex"
             BlueprintName = "ShareRocketChatRN"
-            ReferencedContainer = "container:RocketChatRN.xcodeproj">
+            ReferencedContainer = "container:PDIS.Chat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "Rocket.Chat Experimental.app"
             BlueprintName = "RocketChatRN"
-            ReferencedContainer = "container:RocketChatRN.xcodeproj">
+            ReferencedContainer = "container:PDIS.Chat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -87,6 +87,7 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
@@ -95,7 +96,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "Rocket.Chat Experimental.app"
             BlueprintName = "RocketChatRN"
-            ReferencedContainer = "container:RocketChatRN.xcodeproj">
+            ReferencedContainer = "container:PDIS.Chat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
