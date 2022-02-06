@@ -250,6 +250,7 @@ android {
             java.srcDirs = ['src/main/java', 'src/play/java']
             res.srcDirs = ['src/experimental/res']
             manifest.srcFile 'src/play/AndroidManifest.xml'
+        }
         pdisPlayDebug {
             java.srcDirs = ['src/main/java', 'src/play/java']
             manifest.srcFile 'src/pdis/AndroidManifest.xml'
