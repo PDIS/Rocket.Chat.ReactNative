@@ -26,6 +26,11 @@ export const LANGUAGES = [
 		file: () => require('./locales/zh-TW.json')
 	},
 	{
+		label: '臺灣正體中文',
+		value: 'zh-Hant-TW',
+		file: () => require('./locales/zh-Hant-TW.json')
+	},
+	{
 		label: 'Deutsch',
 		value: 'de',
 		file: () => require('./locales/de.json')
