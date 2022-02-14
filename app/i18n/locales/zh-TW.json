@@ -787,5 +787,14 @@
   "Enable_Message_Parser": "啟用訊息剖析器",
   "Unsupported_format": "Unsupported format",
   "Downloaded_file": "Downloaded file",
-  "Error_Download_file": "Error while downloading file"
+  "Error_Download_file": "Error while downloading file",
+
+  "PDIS_CUSTOM": {
+    "Title": "歡迎來到 PDIS Chat",
+    "Subtitle": "這是一個為 PDIS 客製化的 Rocket.Chat App",
+    "Description": "PDIS Chat 只能登入 PDIS 所建立的工作區。",
+    "Icon_credit": "App Icon 由 RAY 4.0 實習生李安峻提供",
+    "Select_workspace": "選擇工作區",
+    "Workspace_URL_placeholder": "請點選下方清單"
+  }
 }

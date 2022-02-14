@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FlatList, StyleSheet, TextInputProps, View } from 'react-native';
 
 import TextInput from '../../../containers/TextInput';
 import * as List from '../../../containers/List';
 import { themes } from '../../../constants/colors';
 import I18n from '../../../i18n';
-import { TServerHistory } from '../../../definitions/IServerHistory';
 import Item from './Item';
+import { IWorkspace } from '../index';
 
 const styles = StyleSheet.create({
 	container: {
@@ -16,12 +16,9 @@ const styles = StyleSheet.create({
 		marginTop: 0,
 		marginBottom: 0
 	},
-	serverHistory: {
+	serverList: {
 		maxHeight: 180,
 		width: '100%',
-		top: '100%',
-		zIndex: 1,
-		position: 'absolute',
 		borderWidth: StyleSheet.hairlineWidth,
 		borderRadius: 2,
 		borderTopWidth: 0
@@ -31,27 +28,21 @@ const styles = StyleSheet.create({
 interface IServerInput extends TextInputProps {
 	text: string;
 	theme: string;
-	serversHistory: any[];
 	onSubmit(): void;
-	onDelete(item: TServerHistory): void;
-	onPressServerHistory(serverHistory: TServerHistory): void;
+	onPressServerList(workspace: IWorkspace): void;
 }
 
-const ServerInput = ({
-	text,
-	theme,
-	serversHistory,
-	onChangeText,
-	onSubmit,
-	onDelete,
-	onPressServerHistory
-}: IServerInput): JSX.Element => {
-	const [focused, setFocused] = useState(false);
+const ServerInput = ({ text, theme, onChangeText, onSubmit, onPressServerList }: IServerInput): JSX.Element => {
+	const serverList = [
+		{ name: 'PDIS Chat', url: 'rc.pdis.nat.gov.tw' },
+		{ name: 'RAY Chat', url: 'raychat.pdis.nat.gov.tw' }
+	];
+
 	return (
 		<View style={styles.container}>
 			<TextInput
-				label={I18n.t('Enter_workspace_URL')}
-				placeholder={I18n.t('Workspace_URL_Example')}
+				label={I18n.t('PDIS_CUSTOM.Select_workspace')}
+				placeholder={I18n.t('PDIS_CUSTOM.Workspace_URL_placeholder')}
 				containerStyle={styles.inputContainer}
 				value={text}
 				returnKeyType='send'
@@ -62,22 +53,18 @@ const ServerInput = ({
 				keyboardType='url'
 				textContentType='URL'
 				theme={theme}
-				onFocus={() => setFocused(true)}
-				onBlur={() => setFocused(false)}
+				editable={false}
 			/>
-			{focused && serversHistory?.length ? (
+			{serverList?.length ? (
 				<View
 					style={[
-						styles.serverHistory,
+						styles.serverList,
 						{ backgroundColor: themes[theme].backgroundColor, borderColor: themes[theme].separatorColor }
 					]}>
 					<FlatList
-						data={serversHistory}
-						renderItem={({ item }) => (
-							<Item item={item} theme={theme} onPress={() => onPressServerHistory(item)} onDelete={onDelete} />
-						)}
+						data={serverList}
+						renderItem={({ item }) => <Item item={item} theme={theme} onPress={() => onPressServerList(item)} />}
 						ItemSeparatorComponent={List.Separator}
-						keyExtractor={item => item.id}
 					/>
 				</View>
 			) : null}

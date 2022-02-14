@@ -787,5 +787,14 @@
   "Enable_Message_Parser": "Enable Message Parser",
   "Unsupported_format": "Unsupported format",
   "Downloaded_file": "Downloaded file",
-  "Error_Download_file": "Error while downloading file"
+  "Error_Download_file": "Error while downloading file",
+
+  "PDIS_CUSTOM": {
+    "Title": "Welcome to PDIS Chat",
+    "Subtitle": "Fork from Rocket.Chat App for PDIS",
+    "Description": "PDIS Chat can only login to PDIS hosted workspace.",
+    "Icon_credit": "App icon is credited by 李安峻, intern of RAY 4.0",
+    "Select_workspace": "Select workspace",
+    "Workspace_URL_placeholder": "Pick one workspace by following list"
+  }
 }
