@@ -4,7 +4,7 @@ import { Q } from '@nozbe/watermelondb';
 
 import * as types from '../actions/actionsTypes';
 import { ROOT_INSIDE, ROOT_LOADING, ROOT_OUTSIDE, ROOT_SET_USERNAME, appStart } from '../actions/app';
-import { selectServerRequest, serverFinishAdd, serverRequest } from '../actions/server';
+import { selectServerRequest, serverFinishAdd } from '../actions/server';
 import { loginFailure, loginSuccess, logout, setUser } from '../actions/login';
 import { roomsRequest } from '../actions/rooms';
 import RocketChat from '../lib/rocketchat';
@@ -187,15 +187,35 @@ const handleLogout = function* handleLogout({ forcedByServer }) {
 		try {
 			yield call(logoutCall, { server });
 
-			yield put(appStart({ root: ROOT_OUTSIDE }));
-			yield put(serverRequest(appConfig.server));
+			// yield put(appStart({ root: ROOT_OUTSIDE }));
+			// yield put(serverRequest(appConfig.server));
 
 			// if the user was logged out by the server
 			if (forcedByServer) {
-				// yield put(appStart({ root: ROOT_OUTSIDE }));
+				yield put(appStart({ root: ROOT_OUTSIDE }));
 				showErrorAlert(I18n.t('Logged_out_by_server'), I18n.t('Oops'));
 				yield delay(300);
 				EventEmitter.emit('NewServer', { server });
+				// } else {
+				// 	const serversDB = database.servers;
+				// 	// all servers
+				// 	const serversCollection = serversDB.get('servers');
+				// 	const servers = yield serversCollection.query().fetch();
+
+				// 	// see if there're other logged in servers and selects first one
+				// 	if (servers.length > 0) {
+				// 		for (let i = 0; i < servers.length; i += 1) {
+				// 			const newServer = servers[i].id;
+				// 			const token = yield UserPreferences.getStringAsync(`${RocketChat.TOKEN_KEY}-${newServer}`);
+				// 			if (token) {
+				// 				yield put(selectServerRequest(newServer));
+				// 				return;
+				// 			}
+				// 		}
+				// 	}
+				// 	// if there's no servers, go outside
+				// 	yield put(appStart({ root: ROOT_OUTSIDE }));
+				// }
 			} else {
 				const serversDB = database.servers;
 				// all servers
@@ -216,26 +236,6 @@ const handleLogout = function* handleLogout({ forcedByServer }) {
 				// if there's no servers, go outside
 				yield put(appStart({ root: ROOT_OUTSIDE }));
 			}
-			// else {
-			// 	const serversDB = database.servers;
-			// 	// all servers
-			// 	const serversCollection = serversDB.get('servers');
-			// 	const servers = yield serversCollection.query().fetch();
-
-			// 	// see if there're other logged in servers and selects first one
-			// 	if (servers.length > 0) {
-			// 		for (let i = 0; i < servers.length; i += 1) {
-			// 			const newServer = servers[i].id;
-			// 			const token = yield UserPreferences.getStringAsync(`${RocketChat.TOKEN_KEY}-${newServer}`);
-			// 			if (token) {
-			// 				yield put(selectServerRequest(newServer));
-			// 				return;
-			// 			}
-			// 		}
-			// 	}
-			// 	// if there's no servers, go outside
-			// 	yield put(appStart({ root: ROOT_OUTSIDE }));
-			// }
 		} catch (e) {
 			yield put(appStart({ root: ROOT_OUTSIDE }));
 			log(e);
