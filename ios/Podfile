@@ -10,7 +10,7 @@ def all_pods
   use_unimodules!
   use_react_native!(
     :path => config[:reactNativePath],
-    :hermes_enabled => true
+    :hermes_enabled => false
   )
   use_flipper!()
 end
@@ -22,7 +22,7 @@ abstract_target 'defaults' do
   all_pods
 
   target 'RocketChatRN' # Experimental app
-  target 'Rocket.Chat' # Official app
+  target 'PDIS.Chat' # PDIS app
   target 'ShareRocketChatRN'
   target 'NotificationService'
 end
