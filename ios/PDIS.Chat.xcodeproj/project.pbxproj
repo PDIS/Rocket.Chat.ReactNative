@@ -261,7 +261,7 @@
 		7A14FCF3257FEB59005BDCD4 /* Official.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Official.xcassets; sourceTree = "<group>"; };
 		7A3268F524F04FFE0050E241 /* custom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = custom.ttf; sourceTree = "<group>"; };
 		7AAA749C23043B1D00F1ADE9 /* RocketChatRN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RocketChatRN-Bridging-Header.h"; sourceTree = "<group>"; };
-		7AAB3E52257E6A6E00707CF6 /* Rocket.Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rocket.Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAB3E52257E6A6E00707CF6 /* PDIS.Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDIS.Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ACD4853222860DE00442C55 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		8254958F7FAFC2744F0BEFA2 /* libPods-defaults-Rocket.Chat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-defaults-Rocket.Chat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88665EE8B2B6F34580EEF27D /* libPods-defaults-RocketChatRN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-defaults-RocketChatRN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,7 +503,7 @@
 				13B07F961A680F5B00A75B9A /* Rocket.Chat Experimental.app */,
 				1EC6ACB022CB9FC300A41C61 /* ShareRocketChatRN.appex */,
 				1EFEB5952493B6640072EDC0 /* NotificationService.appex */,
-				7AAB3E52257E6A6E00707CF6 /* Rocket.Chat.app */,
+				7AAB3E52257E6A6E00707CF6 /* PDIS.Chat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -616,9 +616,9 @@
 			productReference = 1EFEB5952493B6640072EDC0 /* NotificationService.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7AAB3E0D257E6A6E00707CF6 /* Rocket.Chat */ = {
+		7AAB3E0D257E6A6E00707CF6 /* PDIS.Chat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AAB3E4F257E6A6E00707CF6 /* Build configuration list for PBXNativeTarget "Rocket.Chat" */;
+			buildConfigurationList = 7AAB3E4F257E6A6E00707CF6 /* Build configuration list for PBXNativeTarget "PDIS.Chat" */;
 			buildPhases = (
 				66BA60EF0ADB5C1F3BD9CFFD /* [CP] Check Pods Manifest.lock */,
 				7AAB3E13257E6A6E00707CF6 /* Start Packager */,
@@ -638,9 +638,9 @@
 				7AAB3E0E257E6A6E00707CF6 /* PBXTargetDependency */,
 				7AAB3E10257E6A6E00707CF6 /* PBXTargetDependency */,
 			);
-			name = Rocket.Chat;
+			name = PDIS.Chat;
 			productName = "Hello World";
-			productReference = 7AAB3E52257E6A6E00707CF6 /* Rocket.Chat.app */;
+			productReference = 7AAB3E52257E6A6E00707CF6 /* PDIS.Chat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -694,7 +694,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RocketChatRN" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PDIS.Chat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -711,7 +711,7 @@
 				13B07F861A680F5B00A75B9A /* RocketChatRN */,
 				1EC6ACAF22CB9FC300A41C61 /* ShareRocketChatRN */,
 				1EFEB5942493B6640072EDC0 /* NotificationService */,
-				7AAB3E0D257E6A6E00707CF6 /* Rocket.Chat */,
+				7AAB3E0D257E6A6E00707CF6 /* PDIS.Chat */,
 			);
 		};
 /* End PBXProject section */
@@ -1960,7 +1960,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AAB3E4F257E6A6E00707CF6 /* Build configuration list for PBXNativeTarget "Rocket.Chat" */ = {
+		7AAB3E4F257E6A6E00707CF6 /* Build configuration list for PBXNativeTarget "PDIS.Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AAB3E50257E6A6E00707CF6 /* Debug */,
@@ -1969,7 +1969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RocketChatRN" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PDIS.Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
